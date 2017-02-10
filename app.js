@@ -10,7 +10,7 @@ Test this function by hand in the console to get it working, and when you think 
 // Write your code here
 function sum(a, b) { //eslint-disable-line
   var result = a + b;
-  var message = 'The sum of ' + a + ' and ' + b + ' is 11.';
+  var message = 'The sum of ' + a + ' and ' + b + ' is ' + result + '.';
 
   return [result, message];
 }
@@ -86,13 +86,17 @@ var testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(testArray) { //eslint-disable-line
   var arrayTotal = 0;
-  for (var i = 0; i < testArray.length; i++) {
-    arrayTotal += testArray[i]; // parses through whole test array
-  }
+  arrayTotal = sum(testArray[0], sum(testArray[1], testArray[2])[0])[0];
+
+  // Aaron, Tom and/or Jon: I wanted to do this with a for loop (code, see below) - is there a way to make it work with sum()?
+  // for (var i = 0; i < testArray.length; i++) {
+  //   arrayTotal = sum(testArray[0], sum(testArray[1]))[0]; 
+  //   // arrayTotal += testArray[i];
+  // }
 
   var message = testArray + ' was passed in as an array of numbers, and ' + arrayTotal + ' is their sum.';
-  console.log(testArray);
-  console.log(message);
+  console.log(testArray);   // debugging
+  console.log(message);     // debugging
 
   return [arrayTotal, message];
 }
@@ -121,6 +125,6 @@ testSumArray(testArray);
 // }
 
 // // Here is the test for multiplyArray(); uncomment it to run it
-// // testMultiplyArray(2,3,4);
+// testMultiplyArray(2,3,4);
 
 // // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
